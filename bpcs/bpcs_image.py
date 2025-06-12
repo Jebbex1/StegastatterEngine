@@ -1,12 +1,11 @@
-import io
 import multiprocessing
 
 import numpy as np
 
-from steganography.bpcs.bit_plane import BitPlane
-from steganography.bpcs.extract import extract_message_from_vessel
-from steganography.bpcs.embed import embed_message_in_vessel
-from steganography.image_utils import open_image_from_bytes, image_to_array, array_to_image, image_to_bytes
+from bpcs.bit_plane import BitPlane
+from bpcs.extract import extract_message_from_vessel
+from bpcs.embed import embed_message_in_vessel
+from image_utils import open_image_from_bytes, image_to_array, array_to_image, image_to_bytes
 
 
 class BPCSImage:

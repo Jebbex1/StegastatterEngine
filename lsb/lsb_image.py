@@ -2,9 +2,9 @@ import multiprocessing
 from math import log2, ceil
 from typing import Generator, Any
 
-from steganography.bit_operations_utils import bits_to_bytes, bit_list_to_int, bytes_to_bit_list, \
+from bit_operations_utils import bits_to_bytes, bit_list_to_int, bytes_to_bit_list, \
     bitlist_str_to_list
-from steganography.image_utils import open_image_from_bytes
+from image_utils import open_image_from_bytes
 from errors import LSBError, LSBCapacityError
 
 # Mask used to put one (ex:1->00000001, 2->00000010) associated with OR bitwise

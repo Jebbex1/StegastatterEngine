@@ -1,10 +1,10 @@
 import math
 import numpy as np
 
-from steganography.bpcs.core import calc_bpcs_complexity_coefficient
-from steganography.bpcs.dimension_computing import compute_all_block_indices
-from steganography.bpcs.dynamic_prefixing import get_prefix_length
-from steganography.content_wrapper.wrapper import get_max_unwapped_length
+from bpcs.core import calc_bpcs_complexity_coefficient
+from bpcs.dimension_computing import compute_all_block_indices
+from bpcs.dynamic_prefixing import get_prefix_length
+from content_wrapper.wrapper import get_max_unwapped_length
 
 
 def count_accepted_blocks(vessel_blocks: np.ndarray, image_shape: tuple[int, int, int, int],

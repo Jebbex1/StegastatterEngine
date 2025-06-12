@@ -2,7 +2,7 @@ import io
 import multiprocessing
 from PIL import Image
 
-from steganography.image_utils import open_image_from_bytes
+from image_utils import open_image_from_bytes
 
 
 def show_diff(img1_bytes: bytes, img2_bytes: bytes, exact_diff: bool) -> tuple[tuple[int, int, int], bytes]:

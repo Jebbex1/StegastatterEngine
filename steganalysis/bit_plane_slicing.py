@@ -4,7 +4,7 @@ from typing import Generator, Any
 import numpy as np
 from PIL import Image
 
-from steganography.image_utils import open_image_from_bytes
+from image_utils import open_image_from_bytes
 
 
 def slice_rgb_bit_planes(image_bytes: bytes) -> Generator[tuple[str, bytes], Any, None]:

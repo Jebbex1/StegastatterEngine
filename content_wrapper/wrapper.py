@@ -5,9 +5,9 @@ import struct
 from enum import IntEnum
 
 from errors import TokenError
-from steganography.content_wrapper.aes_gcm import encrypt, decrypt
-from steganography.content_wrapper.reed_solomon import pad, unpad
-from steganography.content_wrapper.seeded_shuffler import shuffle_bytes, unshuffle_bytes
+from content_wrapper.aes_gcm import encrypt, decrypt
+from content_wrapper.reed_solomon import pad, unpad
+from content_wrapper.seeded_shuffler import shuffle_bytes, unshuffle_bytes
 
 """
 Every parameter but the key has a constant length due to its' algorithms restraints:

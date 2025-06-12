@@ -1,12 +1,12 @@
-from steganography.bpcs.bpcs_image import BPCSImage
-from steganography.bpcs.embed import get_message_blocks_from_bytes
-from steganography.bpcs.capacity import calculate_maximum_capacity
-from steganography.image_utils import image_to_bytes
-from steganography.lsb.lsb_image import LSBImage
-from steganography.content_wrapper.wrapper import wrap_bpcs, get_bpcs_token_info, wrap_lsb, get_lsb_token_info, \
+from bpcs.bpcs_image import BPCSImage
+from bpcs.embed import get_message_blocks_from_bytes
+from bpcs.capacity import calculate_maximum_capacity
+from image_utils import image_to_bytes
+from lsb.lsb_image import LSBImage
+from content_wrapper.wrapper import wrap_bpcs, get_bpcs_token_info, wrap_lsb, get_lsb_token_info, \
     unwrap, get_max_unwapped_length
-from steganography.steganalysis.bit_plane_slicing import slice_rgb_bit_planes
-from steganography.steganalysis.get_diff import show_diff
+from steganalysis.bit_plane_slicing import slice_rgb_bit_planes
+from steganalysis.get_diff import show_diff
 
 
 def bpcs_embed(source_image_bytes: bytes, message: bytes, key: str, ecc_block_size: int = 255,
