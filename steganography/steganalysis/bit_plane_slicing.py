@@ -1,12 +1,13 @@
 import io
 import multiprocessing
+from typing import Generator, Any
 import numpy as np
 from PIL import Image
 
-from server.steganography.image_utils import open_image_from_bytes
+from steganography.image_utils import open_image_from_bytes
 
 
-def slice_rgb_bit_planes(image_bytes: bytes):
+def slice_rgb_bit_planes(image_bytes: bytes) -> Generator[tuple[str, bytes], Any, None]:
     update_logger = multiprocessing.get_logger()
 
     image = open_image_from_bytes(image_bytes)

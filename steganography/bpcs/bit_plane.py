@@ -3,7 +3,7 @@ import multiprocessing
 from typing import Generator, Callable
 import numpy as np
 
-from server.steganography.bpcs.bpcs_errors import BPCSError
+from errors import BPCSError
 
 
 def xor_lists(a: list[bool], b: list[bool]) -> list[bool]:

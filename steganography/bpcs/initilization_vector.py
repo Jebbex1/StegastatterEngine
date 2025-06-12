@@ -1,7 +1,7 @@
 import math
 import numpy as np
 
-from server.steganography.bpcs.dynamic_prefixing import get_prefix_length, bits_to_prefixed_blocks, \
+from steganography.bpcs.dynamic_prefixing import get_prefix_length, bits_to_prefixed_blocks, \
     get_data_from_prefixed_blocks
 
 

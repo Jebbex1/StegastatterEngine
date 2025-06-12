@@ -2,11 +2,10 @@ import multiprocessing
 from math import log2, ceil
 from typing import Generator, Any
 
-from server.steganography.bit_operations_utils import bits_to_bytes, bit_list_to_int, bytes_to_bit_list, \
+from steganography.bit_operations_utils import bits_to_bytes, bit_list_to_int, bytes_to_bit_list, \
     bitlist_str_to_list
-from server.steganography.image_utils import open_image_from_bytes
-from server.steganography.lsb.lsb_errors import LSBCapacityError, LSBError
-from server.steganography.steganography_errors import IMAGE_MAX_WIDTH, IMAGE_MAX_HEIGHT, ImageTooBigError
+from steganography.image_utils import open_image_from_bytes
+from errors import LSBError, LSBCapacityError
 
 # Mask used to put one (ex:1->00000001, 2->00000010) associated with OR bitwise
 TRUE_BIT_MASK_VALUES = [1, 2, 4, 8, 16, 32, 64, 128]
@@ -26,9 +25,6 @@ class LSBImage:
         update_logger = multiprocessing.get_logger()
         update_logger.info("Loading image...")
         self.image = open_image_from_bytes(image_bytes)
-        if self.image.width > IMAGE_MAX_WIDTH or self.image.height > IMAGE_MAX_HEIGHT:
-            raise ImageTooBigError(f"Image dimentions {self.image.size} are bigger in at least one dimention from the "
-                                   f"limit {IMAGE_MAX_WIDTH}, {IMAGE_MAX_HEIGHT}")
         self.iv_bit_len = ceil(log2(self.image.width*self.image.height*len(self.image.getbands())*sacrificed_bits))
         self.max_bits_per_byte = sacrificed_bits
 

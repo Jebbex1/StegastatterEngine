@@ -1,17 +1,11 @@
 import io
-import PIL
 import PIL.Image
 import numpy as np
 from PIL import Image
 
-from shared.communication_protocol.communication_errors import PacketContentsError
-
 
 def open_image_from_bytes(image_bytes: bytes) -> PIL.Image.Image:
-    try:
-        return PIL.Image.open(io.BytesIO(image_bytes)).convert("RGB")
-    except PIL.UnidentifiedImageError:
-        raise PacketContentsError("Expected image bytes, got otherwise")
+    return PIL.Image.open(io.BytesIO(image_bytes)).convert("RGB")
 
 
 def write_image(out_path: str, image: Image.Image) -> None:

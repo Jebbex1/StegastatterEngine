@@ -1,10 +1,8 @@
 import io
 import multiprocessing
-
 from PIL import Image
 
-from shared.communication_protocol.communication_errors import PacketContentsError
-from server.steganography.image_utils import open_image_from_bytes
+from steganography.image_utils import open_image_from_bytes
 
 
 def show_diff(img1_bytes: bytes, img2_bytes: bytes, exact_diff: bool) -> tuple[tuple[int, int, int], bytes]:
@@ -14,9 +12,6 @@ def show_diff(img1_bytes: bytes, img2_bytes: bytes, exact_diff: bool) -> tuple[t
 
     img1 = open_image_from_bytes(img1_bytes)
     img2 = open_image_from_bytes(img2_bytes)
-
-    if img1.size != img2.size:
-        raise PacketContentsError("Sent images must have same size")
 
     diff_image = Image.new("RGB", img1.size)
 

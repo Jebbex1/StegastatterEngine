@@ -3,11 +3,10 @@ import multiprocessing
 
 import numpy as np
 
-from server.steganography.bpcs.bit_plane import BitPlane
-from server.steganography.bpcs.extract import extract_message_from_vessel
-from server.steganography.bpcs.embed import embed_message_in_vessel
-from server.steganography.image_utils import open_image_from_bytes, image_to_array, array_to_image, image_to_bytes
-from server.steganography.steganography_errors import IMAGE_MAX_WIDTH, IMAGE_MAX_HEIGHT, ImageTooBigError
+from steganography.bpcs.bit_plane import BitPlane
+from steganography.bpcs.extract import extract_message_from_vessel
+from steganography.bpcs.embed import embed_message_in_vessel
+from steganography.image_utils import open_image_from_bytes, image_to_array, array_to_image, image_to_bytes
 
 
 class BPCSImage:
@@ -28,9 +27,6 @@ class BPCSImage:
 
     def read(self) -> np.ndarray:
         img = open_image_from_bytes(self.image_bytes)
-        if img.width > IMAGE_MAX_WIDTH or img.height > IMAGE_MAX_HEIGHT:
-            raise ImageTooBigError(f"Image dimentions {img.size} are bigger in at least one dimention from the limit "
-                                   f"{IMAGE_MAX_WIDTH}, {IMAGE_MAX_HEIGHT}")
         pixels = image_to_array(img)
         pixels = BitPlane(pixels, self.as_gray).slice()
         return pixels
